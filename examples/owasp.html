@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!-- snip -->
+        <form>
+            Search our database: <input type="text" name="sterm" id="sterm" /><br />
+            <input type="button" onclick="search()" value="Search" />
+        </form>
+        <div id="msg"></div>
+        <!-- snip -->
+        <script type="text/javascript">
+            var urlParams = new URLSearchParams(window.location.search);
+            function search() {
+                // 'st' is the 'search term'
+                document.getElementById("msg").innerHTML = "Searching for: " +
+                (escape(document.getElementById("sterm").value) || "please choose a search term!") +
+                (urlParams.get('st') ? " in database " + urlParams.get('st') : "");
+            }
+        </script>
+    </body>
+</html>

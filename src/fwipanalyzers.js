@@ -39,7 +39,7 @@ function analyzeSourcesAndSinks(state) {
   const sources = [];
   const sinks = [];
   const sanitizers = [];
-  const srcPreviewLen = 100;
+  const srcPreviewLen = 65;
 
   for(const lineNumber in assignments) {
     assignments[lineNumber]['stack'].forEach(entry => {

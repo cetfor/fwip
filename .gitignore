@@ -5,9 +5,7 @@
 # Directories
 .antlr
 node_modules
-slides/*
-scraped/*
-examples/*
+examples/vulns/*
 
 # ANTLR-generated files
 antlr/JavaScriptLexer.js

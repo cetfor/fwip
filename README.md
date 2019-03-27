@@ -7,10 +7,11 @@ FwIP is a proof-of-concept application that aims to illustrate how to parse form
 FwIP is written in `Node.js`, which requires you to have `Node.js` installed on your system. `Node.js` comes with `NPM` a package manager that will fetch all required dependencies for you. Once you have Node installed, clone this repo, run `npm install` in the root directory and run the cli `node p4.js`.
 
 ```
-$ git clone <github.com\cetfor\fwip>
+$ git clone https://github.com/cetfor/fwip
 $ cd fwip
 $ npm install
 $ node p4.js -h
+$ node fwip.js -a .\examples\owasp.html
 ```
 
 # Analyzing Files
@@ -23,7 +24,7 @@ $ node p4.js -a test_files\
 $ node p4.js -a http:\\localhost\my\cool\site.html
 ```
 
-# Working with ANLTR4 (optional)
+# Working with ANTLR4 (optional)
 
 Please note that P4 already contains ANTLR4-generated lexer and parser classes.  You do not need to use ANTLR4 to use P4.  However, you might want to make modifications to the ANTLR4 JavaScript grammar and rebuild the lexer and parser.  In that case, you will need to understand how to use ANTLR4.  In this section we'll take a look at how to get ANTLR4 up and running on Windows, Linux, and OSX and basic usage on each platform.
 
