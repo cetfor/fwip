@@ -1,0 +1,20 @@
+{
+  "name": "fwip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fwip.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Toterhi",
+  "license": "MIT",
+  "dependencies": {
+    "antlr4": "^4.7.2",
+    "commander": "^2.19.0",
+    "glob": "^7.1.3",
+    "globby": "^9.1.0",
+    "hook-std": "^1.2.0",
+    "htmlparser2": "^3.10.1",
+    "website-scraper": "^4.0.0"
+  }
+}

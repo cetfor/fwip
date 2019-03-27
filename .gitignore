@@ -1,0 +1,18 @@
+# Misc files
+.DS_Store
+.log
+
+# Directories
+.antlr
+node_modules
+slides/*
+scraped/*
+examples/*
+
+# ANTLR-generated files
+antlr/JavaScriptLexer.js
+antlr/JavaScriptParser.js
+antlr/JavaScriptLexer.tokens
+antlr/JavaScriptParser.tokens
+antlr/JavaScriptParserListener.js
+antlr/JavaScriptParserVisitor.js
