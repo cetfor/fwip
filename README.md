@@ -58,6 +58,19 @@ The following files were skipped:
   - jquery.min.js
 ```
 
+# Ignoring Files
+You might have files we don't want to analyze, either because they aren't in scope or for some other reason. If you want to edit the ignored files list, open `fwip.js` and modify the `ingoredFiles` array.
+
+```
+// Files with these names will not be analyzed
+const ingoredFiles = [
+  'bootstrap.js',
+  'bootstrap.min.js',
+  'jquery.js',
+  'jquery.min.js',
+]
+```
+
 # Working with ANTLR4 (optional)
 
 Please note that fwip already contains ANTLR4-generated lexer and parser classes.  You do not need to use ANTLR4 to use fwip.  However, you might want to make modifications to the ANTLR4 JavaScript grammar and rebuild the lexer and parser.  In that case, you will need to understand how to use ANTLR4.  In this section we'll take a look at how to get ANTLR4 up and running on Linux/MacOS. See `Helpful ANTLR4 Resources` below for a link to a great guide on setting ANTLR4 up on Windows.
