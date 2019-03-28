@@ -4,29 +4,29 @@ FwIP is a proof-of-concept application that aims to illustrate how to parse form
 
 # Installing and Using FwIP
 
-FwIP is written in `Node.js`, which requires you to have `Node.js` installed on your system. `Node.js` comes with `NPM` a package manager that will fetch all required dependencies for you. Once you have Node installed, clone this repo, run `npm install` in the root directory and run the cli `node p4.js`.
+FwIP is written in `Node.js`, which requires you to have `Node.js` installed on your system. `Node.js` comes with `NPM` a package manager that will fetch all required dependencies for you. Once you have `node.js` installed, clone this repo, run `npm install` in the root directory and run the cli `node fwip.js`.
 
 ```
 $ git clone https://github.com/cetfor/fwip
 $ cd fwip
 $ npm install
-$ node p4.js -h
+$ node fwip.js -h
 $ node fwip.js -a .\examples\owasp.html
 ```
 
 # Analyzing Files
 
-P4 can analyze a single file or a batch of files. It specifically looks for files ending in `.js` and runs analysis on them.
+fwip can analyze a single file or a batch of files. It specifically looks for files ending in `.js` and runs analysis on them.
 
 ```
-$ node p4.js -a test.js
-$ node p4.js -a test_files\
-$ node p4.js -a http:\\localhost\my\cool\site.html
+$ node fwip.js -a test.js
+$ node fwip.js -a test_files\
+$ node fwip.js -a http:\\localhost\my\cool\site.html
 ```
 
 # Working with ANTLR4 (optional)
 
-Please note that P4 already contains ANTLR4-generated lexer and parser classes.  You do not need to use ANTLR4 to use P4.  However, you might want to make modifications to the ANTLR4 JavaScript grammar and rebuild the lexer and parser.  In that case, you will need to understand how to use ANTLR4.  In this section we'll take a look at how to get ANTLR4 up and running on Windows, Linux, and OSX and basic usage on each platform.
+Please note that fwip already contains ANTLR4-generated lexer and parser classes.  You do not need to use ANTLR4 to use fwip.  However, you might want to make modifications to the ANTLR4 JavaScript grammar and rebuild the lexer and parser.  In that case, you will need to understand how to use ANTLR4.  In this section we'll take a look at how to get ANTLR4 up and running on Windows, Linux, and OSX and basic usage on each platform.
 
 ## Installing, Configuring and Running ANTLR4 on Linux
 
