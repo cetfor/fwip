@@ -1,6 +1,8 @@
 # Fun with Improvisational Parsers (FwIP)
 
-FwIP is a proof-of-concept application that aims to illustrate how to parse formal computer languages. Specifically, it targets JavaScript, but the concepts used in this project can be applied to any programming language.
+FwIP is a proof-of-concept application that aims to illustrate how to parse formal computer languages in order to look for bugs. Specifically, `fwip` targets JavaScript, but the concepts used in this project can be applied to any programming language. 
+
+The concepts behind `fwip` and `fwip` itself were presented at Columbus OWASP on 28 March 2019. Similar concepts will be presented at the [2019 Central Ohio InfoSec Summit](https://www.infosecsummit.com/ehome/index.php?eventid=367886&) 23-24 May. If you're in the area, please come and check it out!
 
 # Installing and Using FwIP
 
