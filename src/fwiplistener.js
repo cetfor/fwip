@@ -7,7 +7,7 @@ let state = new Object();
 let currentVar = "";
 
 class FwIPListener extends JavaScriptParserListener {
-    
+
     // ==========================================
     // enters
     // ==========================================
@@ -24,10 +24,6 @@ class FwIPListener extends JavaScriptParserListener {
 
     enterMemberDotExpression(ctx) {
         stack.push(ctx.getText());
-    }
-
-    enterAssignmentExpression(ctx) {
-        stack = new Array();
     }
 
     enterLiteral(ctx) {
@@ -64,17 +60,16 @@ class FwIPListener extends JavaScriptParserListener {
         })
         currentVar = "";
     }
-    
-    exitAssignmentExpression(ctx) {
-        state["_assignments"][ctx.start.line] = {} 
-        state["_assignments"][ctx.start.line]['stack'] = stack.slice(0);
-        state["_assignments"][ctx.start.line]['source'] = ctx.getText();
-    }
 
     exitStatement(ctx) {
-        state["_assignments"][ctx.start.line] = {} 
-        state["_assignments"][ctx.start.line]['stack'] = stack.slice(0);
-        state["_assignments"][ctx.start.line]['source'] = ctx.getText();
+        // ideally entire functions wouldn't be statements, the grammar
+        // should be tweaked to remove this. We want to ignore whole function
+        // statements because we'll end up with duplicate alerts if we don't.
+        if (!ctx.getText().startsWith("function")) {
+            state["_assignments"][ctx.start.line] = {} 
+            state["_assignments"][ctx.start.line]['stack'] = stack.slice(0);
+            state["_assignments"][ctx.start.line]['source'] = ctx.getText();
+        }
     }
 
     exitProgram(ctx) {
