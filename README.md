@@ -16,14 +16,46 @@ $ node fwip.js -h
 $ node fwip.js -a .\examples\owasp.html
 ```
 
-# Analyzing Files
+# Analyzing Local Files
 
-fwip can analyze a single file or a batch of files. It specifically looks for files ending in `.js` and runs analysis on them.
+`fwip` can analyze a single file or a batch of files. It specifically looks for files ending in `.js` and runs analysis on them.
 
 ```
 $ node fwip.js -a test.js
 $ node fwip.js -a test_files\
-$ node fwip.js -a http:\\localhost\my\cool\site.html
+```
+
+# Analyzing Remote Files
+
+`fwip` can scrape a target site for all `html` and `js` files. It will extract javascript from html and save everything to `./scraped` as a hash name of the target site. Once you've scraped the target, you can run analysis on it. `fwip` will not rescrape a target if its hash already exists in `./scraped`. To re-scrape, just delete the directory and scrape again.
+
+```
+$ node fwip.js -a http://www.domxss.com/domxss/01_Basics/01_simplest_1.html
+Scraping URL 'http://www.domxss.com/domxss/01_Basics/01_simplest_1.html'...
+Target URL scraped and saved to scraped\d9bb9aff25454d5c425071173369fcce
+To analyze, run: node fwip.js -a scraped\d9bb9aff25454d5c425071173369fcce
+
+$ node fwip.js -a scraped\d9bb9aff25454d5c425071173369fcce
+Ignoring file scraped/d9bb9aff25454d5c425071173369fcce/js/bootstrap.js
+Ignoring file scraped/d9bb9aff25454d5c425071173369fcce/js/bootstrap.min.js
+Ignoring file scraped/d9bb9aff25454d5c425071173369fcce/js/jquery.min.js
+Analyzing file scraped/d9bb9aff25454d5c425071173369fcce/js/b.js
+>> Potential vulnerability on line: 4
+     document.write(m);
+     Description: This issue contains 8 source(s), 1 sink(s), and 0 sanitizer(s).
+     Sources:     document.URL
+     Sinks:       document.write
+Analyzing file scraped/d9bb9aff25454d5c425071173369fcce/js/cookieconsent.min.js
+Analyzing file scraped/d9bb9aff25454d5c425071173369fcce/js/custom.js
+Analyzing file scraped/d9bb9aff25454d5c425071173369fcce/js/embed.js
+Analyzing file scraped/d9bb9aff25454d5c425071173369fcce/index_1.html
+Analyzing file scraped/d9bb9aff25454d5c425071173369fcce/index.html
+
+Finished analyzing 6 file(s) with 0 error(s) and 3 skipped file(s).
+The following files were skipped:
+  - bootstrap.js
+  - bootstrap.min.js
+  - jquery.min.js
 ```
 
 # Working with ANTLR4 (optional)
