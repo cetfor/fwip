@@ -1,0 +1,29 @@
+<!-- example from: http://www.domxss.com/domxss/01_Basics/02_simplest_2.html -->
+<HTML>
+<TITLE>Welcome!</TITLE>
+<link rel="stylesheet" type="text/css" href="../css/exercise.css">
+<body><script src="../js/embed.js"></script> 
+<div style="display:none" id="help">
+<h4>Solve Instruction</h4>
+<div>This is a very classic html injection. In this case script tag won't work and call d00med()</div>
+</div>
+<h1>HTML Injection</h1>
+<h2>Inline Script - innerHTML</h2>
+<span id="user"></span>
+<SCRIPT>
+var url=unescape(document.URL);
+var pos=url.indexOf("name=")+5;
+document.getElementById("user").innerHTML="Hi, <b>"+url.substring(pos,url.length)+'</b>';
+
+console.log("in")
+</SCRIPT>
+<BR>
+
+Welcome to our system
+<div style="position:absolute;bottom:0;left:0;right:0">
+<p><center>
+<p>Sponsored by BlueClosure <a href="https://www.blueclosure.com">www.blueclosure.com</a> the leading platform for JavaScript Security. </p></center>
+</p>
+</div>
+</body>
+</HTML>

@@ -2,14 +2,16 @@ const fwipSources = [
     "hash",
     "URLSearchParams",
     "value",
+    "document.URL",
 ]
 
 const fwipSinks = [
     "eval",
     "innerHTML",
     "textContent",
-    "value",
-    "write",
+    "appendChild",
+    "document.write",
+    "document.write"
 ]
 
 const fwipSanitizers = [

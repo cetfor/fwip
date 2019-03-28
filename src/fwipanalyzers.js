@@ -45,6 +45,7 @@ function analyzeSourcesAndSinks(state) {
     assignments[lineNumber]['stack'].forEach(entry => {
       if (Object.keys(variables).includes(entry)) {
         variables[entry].forEach(item => {
+          //console.log(`item: ${item}`);
           if (fwipSources.includes(item)) {
             sourceNum++;
             sources.push(item);
@@ -60,10 +61,12 @@ function analyzeSourcesAndSinks(state) {
         sourceNum++;
         sources.push(entry);
       }
+
       if (fwipSinks.includes(entry)) {
         sinkNum++;
         sinks.push(entry);
       }
+
       if (fwipSanitizers.includes(entry)) {
         sanitizerNum++;
         sanitizers.push(entry);
@@ -89,9 +92,9 @@ function analyzeSourcesAndSinks(state) {
         else {
           console.log(`     ${assignments[lineNumber]['source']}`);
         }
-        console.log(`     Description: This line contains ${sourceNum} source(s), ${sinkNum} sink(s), and ${sanitizerNum} sanitizer(s).`);
-        console.log(`     Sources:     ${sources}`);
-        console.log(`     Sinks:       ${sinks}`);
+        console.log(`     Description: This issue contains ${sourceNum} source(s), ${sinkNum} sink(s), and ${sanitizerNum} sanitizer(s).`);
+        console.log(`     Sources:     ${[...new Set(sources)]}`);
+        console.log(`     Sinks:       ${[...new Set(sinks)]}`);
         if (sanitizers.length > 0) {
           console.log(`     Sanitizers:  ${sanitizers}`);
         }
@@ -101,10 +104,9 @@ function analyzeSourcesAndSinks(state) {
 }
 
 function evaluateState(state) {
-
+  //console.log(state);
   // Analyzer 1: Simple source and sink analysis
   analyzeSourcesAndSinks(state);
-
 }
 
 exports.evaluateState = evaluateState;

@@ -22,6 +22,10 @@ class FwIPListener extends JavaScriptParserListener {
         stack = new Array();
     }
 
+    enterMemberDotExpression(ctx) {
+        stack.push(ctx.getText());
+    }
+
     enterAssignmentExpression(ctx) {
         stack = new Array();
     }
@@ -67,11 +71,11 @@ class FwIPListener extends JavaScriptParserListener {
         state["_assignments"][ctx.start.line]['source'] = ctx.getText();
     }
 
-    // exitStatement(ctx) {
-    //     state["_assignments"][ctx.start.line] = {} 
-    //     state["_assignments"][ctx.start.line]['stack'] = stack.slice(0);
-    //     state["_assignments"][ctx.start.line]['source'] = ctx.getText();
-    // }
+    exitStatement(ctx) {
+        state["_assignments"][ctx.start.line] = {} 
+        state["_assignments"][ctx.start.line]['stack'] = stack.slice(0);
+        state["_assignments"][ctx.start.line]['source'] = ctx.getText();
+    }
 
     exitProgram(ctx) {
         evaluateState(state);

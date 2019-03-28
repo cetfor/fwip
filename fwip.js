@@ -42,7 +42,8 @@ function readFile(file) {
     let inJsScriptTag = false;
     const parser = new htmlparser.Parser({
       onopentag: function(name, attribs) {
-        // if (name === "script" && (attribs.type === "application/javascript" || attribs.type === "text/javascript")) {
+        // To limit script tags with specific attributes types, use:
+        // attribs.type === "application/javascript" and/or attribs.type === "text/javascript"
         if (name === "script") {
           inJsScriptTag = true;
         }
